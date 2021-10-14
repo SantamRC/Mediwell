@@ -1,0 +1,1 @@
+https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=A0FPTzuzBbcDjyUXMfbXfdgYkj4QNkbh&redirect_uri=http://www.google.com&response_type=code&scope=offline_access
