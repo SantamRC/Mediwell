@@ -8,23 +8,26 @@ import * as WebBrowser from 'expo-web-browser';
 
 export default function App() {
   const [token,setToken] =  useState();
-  let url =`https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=A0FPTzuzBbcDjyUXMfbXfdgYkj4QNkbh&redirect_uri=${encodeURIComponent("http://www.google.com")}&response_type=code&scope=offline_access`
 
-  const config = {
-    issuer: 'https://developer-portal-dot-g5-dexcom-prod-us-5.appspot.com/consent',
-    clientId: 'A0FPTzuzBbcDjyUXMfbXfdgYkj4QNkbh',
-    redirectUrl: 'http://www.google.com',
-    scope: ["egv", "calibrations", "devices", "dataRange", "events", "statistics"]
-    };
+  let url='https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=A0FPTzuzBbcDjyUXMfbXfdgYkj4QNkbh&redirect_uri=exp://127.0.0.1:19000&response_type=code&scope=offline_access'
 
-  const handleAuth=async ()=>{
-    try{
-      let result = await WebBrowser.openBrowserAsync(url);
-      console.log(result)
+  function handleLink(event){
+    let data=Linking.parse(event.url)
+    setToken(data)
+    if(data["queryParams"]["code"]){
+      console.log("The code is: "+data["queryParams"]["code"])
     }
-    catch(err){
-      console.log("The error is: " + err.message);
+  }
+
+  useEffect(()=>{
+    Linking.addEventListener('url',handleLink);
+    return ()=>{
+      Linking.removeEventListener('url')
     }
+  })
+  
+  let handleClick = async ()=>{
+    WebBrowser.openBrowserAsync(url)
   }
 
 
@@ -32,7 +35,8 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <Text style={styles.text}>Mediwell</Text>
-      <Button style={styles.button} title="Connect to your Dexcom Account" onPress={handleAuth} />
+      <Button title="Authenticate" onPress={handleClick} />
+      <Text>{token? JSON.stringify(token) : "App not opened from Deep Link"}</Text>
     </View>
   );
 }
