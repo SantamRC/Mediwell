@@ -57,6 +57,20 @@ const App = () => {
         onNext={() => setActive((p) => p + 1)}
         onBack={() => setActive((p) => p - 1)}
         onFinish={() => Alert.alert("Finish")}
+        stepStyle={{
+            backgroundColor: "green",
+            display: "flex",
+        }}
+        buttonStyle={{
+            marginTop: 20, 
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            width: 130,
+            borderRadius: 20, 
+        }}
+        buttonTextStyle={{
+            textAlign: "center"
+        }}
       />
     </View>
   );
