@@ -1,15 +1,15 @@
-import state from './state';
+import state from '../state';
 
-const Auth = (state=state,action) => {
+const Auth = (initialState=state,action) => {
     switch(action.type){
-        case "Auth":
+        case "AUTH":
             return {
-                ...state,
-                access: state.access,
-                refresh: state.refresh,
+                ...initialState,
+                access: action.access,
+                refresh: action.refresh,
             }
             default:
-                return state
+                return initialState
     }
 }
 
