@@ -1,1 +1,0 @@
-The Mobile Application for Mediwell!!

@@ -1,14 +1,21 @@
-import React from 'react'
-import Navigator from './Utilities/Navigator'
-import {Provider} from 'react-redux'
-import store from './Redux/store'
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-const App = () => {
+export default function App() {
   return (
-    <Provider store={store}>
-      <Navigator />
-    </Provider>
-  )
+    <View style={styles.container}>
+      <Text>Mediwell App</Text>
+      <StatusBar style="auto" />
+    </View>
+  );
 }
 
-export default App
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
