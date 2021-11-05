@@ -1,5 +1,7 @@
 package com.mediwell;
 
+import com.microsoft.codepush.react.CodePush;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -28,6 +30,11 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
+    }
+
+    @Override
+    protected String getJSBundleFile() {
+        return CodePush.getJSBundleFile();
     }
 
     @Override
