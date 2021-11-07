@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "513808327034",
+    "project_id": "mediwell-dps",
+    "storage_bucket": "mediwell-dps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513808327034:android:6c9bd610661786645db6c3",
+        "android_client_info": {
+          "package_name": "com.mediwell"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513808327034-bm18nlj7v3ak7v0m456o817i9r65eeec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8gtyFWgYN9gcJj9sup7sjjSjI2vKB0Yk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513808327034-bm18nlj7v3ak7v0m456o817i9r65eeec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
