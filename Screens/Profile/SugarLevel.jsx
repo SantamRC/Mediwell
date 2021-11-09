@@ -1,17 +1,25 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { Button } from "react-native-paper";
+import AddButton from "../../Components/AddButton/AddButton";
 
 const SugarLevel = () => {
   return (
     <View style={styles.box}>
-      <View style={{maxWidth: 120}}>
-        <Text style={{ color: "white" }}>Sugar Level</Text>
-        <Text style={{ color: "#90FF86" }}>
-          You are in your performance zone
-        </Text>
-      </View>
       <View>
-        <View style={styles.white_circle}></View>
+        <View style={styles.white_circles}>
+          <Text style={{ color: "white", fontSize: 18, textAlign: "center" }}>
+            Current Sugar Level
+          </Text>
+          <Text style={styles.sugar_text}>123</Text>
+        </View>
+      </View>
+      <View style={{ maxWidth: 120 }}>
+        <Text style={{ color: "white", fontSize: 18, textAlign: "center" }}>
+          Current Insulin on board level
+        </Text>
+        <View style={styles.iob}></View>
+        <AddButton style={{ marginTop: 10 }} />
       </View>
     </View>
   );
@@ -35,6 +43,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#292E45",
     borderRadius: 200,
     borderWidth: 2,
-    borderColor: 'white'
+    borderColor: "white",
+    marginTop: 20,
+  },
+  sugar_text: {
+    color: "white",
+    textAlign: "center",
+    marginTop: 40,
+    fontSize: 50,
+  },
+  iob: {
+    width: "100%",
+    height: "50%",
+    backgroundColor: "rgba(196, 196, 196, 0.3)",
   },
 });

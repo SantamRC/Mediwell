@@ -2,17 +2,18 @@ import React from 'react'
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import { Avatar } from "react-native-paper";
 import SugarLevel from './SugarLevel'
+import Exercises from "./Exercises";
 
 const Profile = () => {
   return (
-    <View style={{ alignItems: 'center' }}>
+    <View style={{ alignItems: "center" }}>
       <View style={styles.flex}>
         <Avatar.Image
           style={styles.image}
           size={150}
           source={require("../../Assets/lewis.jpg")}
         />
-        <View style={{marginLeft: 20}}>
+        <View style={{ marginLeft: 20 }}>
           <Text style={styles.hello_text}>Hello Lewis,</Text>
           <Text style={styles.header_text}>
             Your Firness Level:{"\n"} Intermediate
@@ -23,6 +24,19 @@ const Profile = () => {
         </View>
       </View>
       <SugarLevel />
+      <Text
+        style={{
+          ...styles.body_text,
+          color: "#50B2D5",
+          fontSize: 30,
+        }}
+      >
+        Prepare for Exercise
+      </Text>
+      <Text style={{ ...styles.body_text, fontSize: 20 }}>
+        Select the exercise type you want to prepare for
+      </Text>
+      <Exercises style={{ marginTop: 30 }} />
     </View>
   );
 };
@@ -48,5 +62,13 @@ const styles = StyleSheet.create({
     color: "black",
     marginTop: 5,
     fontSize: 20,
+  },
+  body_text: {
+    marginRight: "auto",
+    marginLeft: 20,
+    marginTop: 10,
+  },
+  exercises: {
+    display: "flex",
   },
 });
