@@ -7,7 +7,6 @@ import Startup from '../Screens/Startup/Startup'
 import Onboarding from "../Screens/Onboarding/Onboarding";
 import Profile from "../Screens/Profile/Profile";
 
-
 const Router = () => {
   const Stack = createNativeStackNavigator();
 
