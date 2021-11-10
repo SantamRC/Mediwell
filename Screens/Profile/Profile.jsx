@@ -1,29 +1,37 @@
 import React from 'react'
-import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
-import { Avatar } from "react-native-paper";
-import SugarLevel from './SugarLevel'
+import { StyleSheet, Text, View, Image } from "react-native";
+import SugarLevel from "./SugarLevel";
 import Exercises from "./Exercises";
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
   return (
     <View style={{ alignItems: "center" }}>
+      <Text
+        style={{
+          fontSize: 30,
+          marginRight: "auto",
+          marginLeft: 20,
+          marginTop: 10,
+        }}
+      >
+        Profile
+      </Text>
       <View style={styles.flex}>
-        <Avatar.Image
+        <Image
           style={styles.image}
-          size={150}
           source={require("../../Assets/lewis.jpg")}
         />
         <View style={{ marginLeft: 20 }}>
           <Text style={styles.hello_text}>Hello Lewis,</Text>
           <Text style={styles.header_text}>
-            Your Firness Level:{"\n"} Intermediate
+            Your Fitness Level:{"\n"} Intermediate
           </Text>
           <Text style={styles.header_text}>
             Your hypo risk:{"\n"} Moderate Risk
           </Text>
         </View>
       </View>
-      <SugarLevel />
+      <SugarLevel navigate={navigation} />
       <Text
         style={{
           ...styles.body_text,
@@ -47,6 +55,8 @@ const styles = StyleSheet.create({
   image: {
     marginLeft: 10,
     marginTop: 30,
+    width: 100,
+    height: 100,
   },
   flex: {
     display: "flex",

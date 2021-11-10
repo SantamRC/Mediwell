@@ -1,9 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Button } from "react-native-paper";
 import AddButton from "../../Components/AddButton/AddButton";
 
-const SugarLevel = () => {
+const SugarLevel = ({ navigate }) => {
   return (
     <View style={styles.box}>
       <View>
@@ -11,7 +10,16 @@ const SugarLevel = () => {
           <Text style={{ color: "white", fontSize: 18, textAlign: "center" }}>
             Current Sugar Level
           </Text>
-          <Text style={styles.sugar_text}>123</Text>
+          <Text style={styles.sugar_text}>105</Text>
+          <Text
+            style={{
+              ...styles.sugar_text,
+              marginTop: 0,
+              fontSize: 25,
+            }}
+          >
+            mg/dl
+          </Text>
         </View>
       </View>
       <View style={{ maxWidth: 120 }}>
@@ -19,7 +27,10 @@ const SugarLevel = () => {
           Current Insulin on board level
         </Text>
         <View style={styles.iob}></View>
-        <AddButton style={{ marginTop: 10 }} />
+        <AddButton
+          style={{ marginTop: 10 }}
+          press={() => navigate.navigate("Insulin")}
+        />
       </View>
     </View>
   );

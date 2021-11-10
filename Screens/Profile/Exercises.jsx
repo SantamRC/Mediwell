@@ -24,7 +24,7 @@ const Exercises = ({ style }) => {
             style={styles.image}
             source={require("../../Assets/aerobic_exercise.png")}
           />
-          <Text style={styles.text}>Aerotropic{"\n"} Exercise</Text>
+          <Text style={styles.text}>Aerobic{"\n"} Exercise</Text>
         </View>
       </View>
     </View>

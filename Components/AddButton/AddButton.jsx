@@ -1,15 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
-const AddButton = ({ style }) => {
+const AddButton = ({ style, press }) => {
   return (
-    <View style={style}>
+    <TouchableOpacity style={style} onPress={press}>
       <View style={styles.body}>
         <Icon name="plus" size={20} style={{ marginLeft: 2 }} />
         <Text style={styles.text}>Add Insulin</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

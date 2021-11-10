@@ -6,6 +6,7 @@ import HomeScreen from "../Screens/Home/Home";
 import Startup from '../Screens/Startup/Startup'
 import Onboarding from "../Screens/Onboarding/Onboarding";
 import Profile from "../Screens/Profile/Profile";
+import Insulin from "../Screens/Insulin/Insulin";
 
 const Router = () => {
   const Stack = createNativeStackNavigator();
@@ -14,6 +15,7 @@ const Router = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Profile} />
+        <Stack.Screen name="Insulin" component={Insulin} />
       </Stack.Navigator>
     </NavigationContainer>
   );
