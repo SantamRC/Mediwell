@@ -5,7 +5,7 @@ import Exercises from "./Exercises";
 
 const Profile = ({ navigation }) => {
   return (
-    <View style={{ alignItems: "center" }}>
+    <View style={{ alignItems: "center", flex: 1 }}>
       <Text
         style={{
           fontSize: 30,
