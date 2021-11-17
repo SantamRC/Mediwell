@@ -2,35 +2,37 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AddButton from "../../Components/AddButton/AddButton";
 
-const SugarLevel = ({ navigate }) => {
+const SugarLevel = ({ navigate, style }) => {
   return (
-    <View style={styles.box}>
-      <View>
-        <View style={styles.white_circles}>
-          <Text style={{ color: "white", fontSize: 18, textAlign: "center" }}>
-            Current Sugar Level
-          </Text>
-          <Text style={styles.sugar_text}>105</Text>
-          <Text
-            style={{
-              ...styles.sugar_text,
-              marginTop: 0,
-              fontSize: 25,
-            }}
-          >
-            mg/dl
-          </Text>
+    <View style={style}>
+      <View style={styles.box}>
+        <View>
+          <View style={styles.white_circles}>
+            <Text style={{ color: "white", fontSize: 18, textAlign: "center" }}>
+              Current Sugar Level
+            </Text>
+            <Text style={styles.sugar_text}>105</Text>
+            <Text
+              style={{
+                ...styles.sugar_text,
+                marginTop: 0,
+                fontSize: 25,
+              }}
+            >
+              mg/dl
+            </Text>
+          </View>
         </View>
-      </View>
-      <View style={{ maxWidth: 120 }}>
-        <Text style={{ color: "white", fontSize: 18, textAlign: "center" }}>
-          Current Insulin on board level
-        </Text>
-        <View style={styles.iob}></View>
-        <AddButton
-          style={{ marginTop: 10 }}
-          press={() => navigate.navigate("AddInsulin")}
-        />
+        <View style={{ maxWidth: 120 }}>
+          <Text style={{ color: "white", fontSize: 18, textAlign: "center" }}>
+            Current Insulin on board level
+          </Text>
+          <View style={styles.iob}></View>
+          <AddButton
+            style={{ marginTop: 10 }}
+            press={() => navigate.navigate("AddInsulin")}
+          />
+        </View>
       </View>
     </View>
   );

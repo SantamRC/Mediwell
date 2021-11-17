@@ -6,16 +6,7 @@ import Exercises from "./Exercises";
 const Profile = ({ navigation }) => {
   return (
     <View style={{ alignItems: "center", flex: 1 }}>
-      <Text
-        style={{
-          fontSize: 30,
-          marginRight: "auto",
-          marginLeft: 20,
-          marginTop: 10,
-        }}
-      >
-        Profile
-      </Text>
+      <Text style={styles.heading}>Profile</Text>
       <View style={styles.flex}>
         <Image
           style={styles.image}
@@ -31,20 +22,22 @@ const Profile = ({ navigation }) => {
           </Text>
         </View>
       </View>
-      <SugarLevel navigate={navigation} />
-      <Text
-        style={{
-          ...styles.body_text,
-          color: "#50B2D5",
-          fontSize: 30,
-        }}
-      >
-        Prepare for Exercise
-      </Text>
-      <Text style={{ ...styles.body_text, fontSize: 20 }}>
-        Select the exercise type you want to prepare for
-      </Text>
-      <Exercises style={{ marginTop: 30 }} />
+      <SugarLevel navigate={navigation} style={{ height: "30%" }} />
+      <View style={{ height: "40%" }}>
+        <Text
+          style={{
+            ...styles.body_text,
+            color: "#50B2D5",
+            fontSize: 30,
+          }}
+        >
+          Prepare for Exercise
+        </Text>
+        <Text style={{ ...styles.body_text, fontSize: 20 }}>
+          Select the exercise type you want to prepare for
+        </Text>
+        <Exercises style={{ marginTop: 30 }} />
+      </View>
     </View>
   );
 };
@@ -58,9 +51,17 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
   },
+  heading: {
+    fontSize: 30,
+    marginRight: "auto",
+    marginLeft: 20,
+    marginTop: 10,
+    height: "5%",
+  },
   flex: {
     display: "flex",
     flexDirection: "row",
+    height: "25%",
   },
   hello_text: {
     fontSize: 30,
