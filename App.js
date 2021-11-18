@@ -11,4 +11,4 @@ const MyApp = codePush({
   installMode: codePush.InstallMode.IMMEDIATE,
 })(App);
 
-export default App;
+export default MyApp;
