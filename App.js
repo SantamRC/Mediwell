@@ -1,12 +1,9 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import Screen from './screen';
 
 const App = () => {
-  return (
-    <View>
-      <Text>React Native Boilerplate</Text>
-    </View>
-  );
+  return <Screen />;
 };
 
 export default App;
