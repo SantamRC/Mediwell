@@ -1,9 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import Screen from './screen';
+import codePush from 'react-native-code-push';
+import Router from './Utilities/Routers/BottomNav';
 
-const App = () => {
-  return <Screen />;
-};
+function App() {
+  return <Router />;
+}
 
-export default App;
+const MyApp = codePush({
+  updateDialog: true,
+  installMode: codePush.InstallMode.IMMEDIATE,
+})(App);
+
+export default MyApp;
