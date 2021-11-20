@@ -1,14 +1,18 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, {useContext} from 'react';
+import {StyleSheet, Text, View, Button} from 'react-native';
+import {Store} from '../../Utilities/Context/Provider';
 
 const Settings = () => {
-    return (
-        <View>
-            <Text>Settings</Text>
-        </View>
-    )
-}
+  const value = useContext(Store);
+  return (
+    <View>
+      <Text>Settings</Text>
+      <Text>{value.access_token}</Text>
+      <Button onPress={() => value.update('hello')} title="Update" />
+    </View>
+  );
+};
 
-export default Settings
+export default Settings;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
