@@ -1,9 +1,14 @@
 import React from 'react';
 import codePush from 'react-native-code-push';
 import Router from './Utilities/Routers/BottomNav';
+import {Provider} from './Utilities/Context/Provider';
 
 function App() {
-  return <Router />;
+  return (
+    <Provider>
+      <Router />
+    </Provider>
+  );
 }
 
 const MyApp = codePush({
@@ -11,4 +16,4 @@ const MyApp = codePush({
   installMode: codePush.InstallMode.IMMEDIATE,
 })(App);
 
-export default App;
+export default MyApp;

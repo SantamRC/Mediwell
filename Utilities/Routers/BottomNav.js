@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Tube from 'react-native-vector-icons/MaterialCommunityIcons';
 import Profile from '../../Screens/Profile/Profile';
 import Insulin from '../../Screens/Insulin/Add';
-import Food from '../../Screens/Food/Food';
 import Settings from '../../Screens/Settings/Settings';
 
 const BottomNav = () => {
@@ -31,16 +30,6 @@ const BottomNav = () => {
             tabBarLabel: 'Insulin',
             tabBarIcon: ({color}) => (
               <Tube name="test-tube" color={color} size={24} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Food"
-          component={Food}
-          options={{
-            tabBarLabel: 'Food',
-            tabBarIcon: ({color}) => (
-              <Icon name="fast-food" color={color} size={24} />
             ),
           }}
         />
