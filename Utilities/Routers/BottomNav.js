@@ -1,51 +1,44 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
-import Tube from 'react-native-vector-icons/MaterialCommunityIcons';
+import React, {useState} from 'react';
+import {StyleSheet, View} from 'react-native';
+import {BottomNavigation, Text} from 'react-native-paper';
 import Profile from '../../Screens/Profile/Profile';
 import Insulin from '../../Screens/Insulin/Add';
 import Settings from '../../Screens/Settings/Settings';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Tube from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const BottomNav = () => {
-  const Tab = createMaterialBottomTabNavigator();
+const Bottom = () => {
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
+    {key: 'Profile', title: 'Profile', color: 'green'},
+    {key: 'Insulin', title: 'Insulin', color: '#009688'},
+    {key: 'Settings', title: 'Settings', color: '#795548'},
+  ]);
+
+  const renderScene = BottomNavigation.SceneMap({
+    Profile: Profile,
+    Insulin: Insulin,
+    Settings: Settings,
+  });
 
   return (
-    <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown: false}}>
-        <Tab.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            tabBarLabel: 'Profile',
-            tabBarIcon: ({color}) => (
-              <Icon name="person" color={color} size={24} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Insulin"
-          component={Insulin}
-          options={{
-            tabBarLabel: 'Insulin',
-            tabBarIcon: ({color}) => (
-              <Tube name="test-tube" color={color} size={24} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Settings"
-          component={Settings}
-          options={{
-            tabBarLabel: 'Settings',
-            tabBarIcon: ({color}) => (
-              <Icon name="settings" color={color} size={24} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <BottomNavigation
+      navigationState={{index, routes}}
+      onIndexChange={setIndex}
+      renderScene={renderScene}
+      shifting={true}
+      renderIcon={({route}) => {
+        if (route.key == 'Profile')
+          return <Icon name="person" color="white" size={24} />;
+        else if (route.key == 'Insulin')
+          return <Tube name="test-tube" color="white" size={24} />;
+        else if (route.key == 'Settings')
+          return <Icon name="settings" color="white" size={24} />;
+      }}
+    />
   );
 };
 
-export default BottomNav;
+export default Bottom;
+
+const styles = StyleSheet.create({});

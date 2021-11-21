@@ -7,7 +7,8 @@ function token() {
 
   xhr.addEventListener('readystatechange', function () {
     if (this.readyState === 4) {
-      console.log(JSON.parse(this.responseText).access_token);
+      let value = JSON.parse(this.responseText).access_token;
+      return value;
     }
   });
 

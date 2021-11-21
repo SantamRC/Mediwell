@@ -11,12 +11,12 @@ const Insulin = ({ navigation }) => {
       <Button
         text="Yes, Basal"
         style={styles.buttons}
-        onPress={() => navigation.navigate("InsulinUnits", { name: "Basal" })}
+        onPress={() => navigation.navigate("Units", { name: "Basal" })}
       />
       <Button
         text="Yes, Bolus"
         style={styles.buttons}
-        onPress={() => navigation.navigate("InsulinUnits", { name: "Bolus" })}
+        onPress={() => navigation.navigate("Units", { name: "Bolus" })}
       />
       <Button text="Yes, Both" style={styles.buttons} />
       <Button text="No" style={styles.buttons} />

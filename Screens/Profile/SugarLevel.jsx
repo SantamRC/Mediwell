@@ -30,7 +30,7 @@ const SugarLevel = ({ navigate, style }) => {
           <View style={styles.iob}></View>
           <AddButton
             style={{ marginTop: 10 }}
-            press={() => navigate.navigate("AddInsulin")}
+            press={() => navigate.navigate("Insulin")}
           />
         </View>
       </View>
