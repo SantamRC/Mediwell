@@ -2,12 +2,12 @@ import React from 'react';
 import codePush from 'react-native-code-push';
 import Router from './Utilities/Routers/BottomNav';
 import {Provider} from './Utilities/Context/Provider';
-import Startup from './Screens/Startup/Signin';
+import Startup from './Screens/Startup/Startup';
 
 function App() {
   return (
     <Provider>
-      <Router />
+      <Startup />
     </Provider>
   );
 }

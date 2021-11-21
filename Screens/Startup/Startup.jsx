@@ -1,38 +1,24 @@
 import React from 'react'
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HelloPage from './HelloPage';
+import Signin from './Signin';
+import Signup from './Signup';
+import WelcomePage from './WelcomePage';
 
 const Startup = () => {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <View style={styles.body}>
-      <Text style={styles.hello}>HELLO</Text>
-      <Text style={styles.flexible}>Flexible exercising without risk</Text>
-      <Image style={styles.img} source={require('../../Assets/karsten.png')} />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="HelloPage" component={HelloPage} />
+        <Stack.Screen name="Signin" component={Signin} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="WelcomePage" component={WelcomePage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 export default Startup;
-
-const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-    backgroundColor: '#0e2d6b',
-    alignItems: 'center',
-  },
-  hello: {
-    color: 'white',
-    fontSize: 30,
-    marginTop: '7%',
-  },
-  flexible: {
-    color: 'white',
-    fontSize: 25,
-    marginTop: '4%',
-    textAlign: 'center',
-  },
-  img: {
-    width: '70%',
-    height: '70%',
-    marignLeft: 'auto',
-  },
-});
