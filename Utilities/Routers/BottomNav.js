@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {BottomNavigation, Text} from 'react-native-paper';
 import Profile from '../../Screens/Profile/Profile';
-import Insulin from '../../Screens/Insulin/Add';
+import Insulin from '../../Screens/Insulin/Insulin';
 import Home from '../../Screens/Home/Home';
 import Exercise from '../../Screens/Exercise/Exercise';
 import Icon from 'react-native-vector-icons/Ionicons';
