@@ -36,7 +36,7 @@ const Signin = ({navigation}) => {
           style={styles.button}
           mode="contained"
           color="white"
-          onPress={() => console.log('Signin')}>
+          onPress={() => navigation.navigate('WelcomePage')}>
           Sign In
         </Button>
         <Text
@@ -68,10 +68,10 @@ const styles = StyleSheet.create({
   },
   circle: {
     backgroundColor: '#2A2F46',
-    height: 831,
+    height: '90%',
     borderRadius: 500,
     width: 745,
-    marginTop: -185,
+    marginTop: '-50%',
     marginLeft: -90,
     position: 'absolute',
   },

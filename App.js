@@ -3,6 +3,7 @@ import codePush from 'react-native-code-push';
 import Router from './Utilities/Routers/BottomNav';
 import {Provider} from './Utilities/Context/Provider';
 import Startup from './Screens/Startup/Startup';
+import Test from './Screens/Test/Test';
 
 function App() {
   return (

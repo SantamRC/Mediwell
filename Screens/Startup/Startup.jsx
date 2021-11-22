@@ -5,6 +5,7 @@ import HelloPage from './HelloPage';
 import Signin from './Signin';
 import Signup from './Signup';
 import WelcomePage from './WelcomePage';
+import Bottom from '../../Utilities/Routers/BottomNav'
 
 const Startup = () => {
   const Stack = createNativeStackNavigator();
@@ -16,6 +17,7 @@ const Startup = () => {
         <Stack.Screen name="Signin" component={Signin} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="WelcomePage" component={WelcomePage} />
+        <Stack.Screen name="Bottom" component={Bottom} />
       </Stack.Navigator>
     </NavigationContainer>
   );
