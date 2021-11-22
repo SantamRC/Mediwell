@@ -1,31 +1,37 @@
-import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import React from 'react';
+import {StyleSheet, Text, View, Image} from 'react-native';
+import {Button} from 'react-native-paper';
+import Resistance from '../../Assets/resistance.png';
+import Aerobic from '../../Assets/aerobic.png';
+import High from '../../Assets/high.png';
 
-const Exercises = ({ style }) => {
+const Exercises = () => {
   return (
-    <View style={style}>
-      <View style={styles.body}>
-        <View>
-          <Image
-            style={styles.image}
-            source={require("../../Assets/resistance_training.png")}
-          />
-          <Text style={styles.text}>Resistance{"\n"}Training</Text>
+    <View style={styles.body}>
+      <View style={styles.view1}>
+        <View style={styles.exercise_box}>
+          <Image source={Resistance} style={styles.image} />
+          <Text style={styles.exercise_text}>Resistance {'\n'} Training</Text>
         </View>
-        <View>
-          <Image
-            style={styles.image}
-            source={require("../../Assets/high_intensity_training.png")}
-          />
-          <Text style={styles.text}>High intensity{"\n"} Training</Text>
+        <View style={styles.exercise_box}>
+          <Image source={High} style={styles.image} />
+          <Text style={styles.exercise_text}>
+            High Intensity{'\n'} Training
+          </Text>
         </View>
-        <View>
-          <Image
-            style={styles.image}
-            source={require("../../Assets/aerobic_exercise.png")}
-          />
-          <Text style={styles.text}>Aerobic{"\n"} Exercise</Text>
+        <View style={styles.exercise_box}>
+          <Image source={Aerobic} style={styles.image} />
+          <Text style={styles.exercise_text}>Aerobic {'\n'} Exercise</Text>
         </View>
+      </View>
+      <View style={styles.view2}>
+        <Button
+          mode="contained"
+          color="#292E45"
+          style={styles.button}
+          onPress={() => console.log('Pressed')}>
+          Select Excercise
+        </Button>
       </View>
     </View>
   );
@@ -35,20 +41,34 @@ export default Exercises;
 
 const styles = StyleSheet.create({
   body: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    width: "100%",
-    height: "50%",
+    backgroundColor: '#F1F1F1',
+    flex: 1,
+    width: '90%',
+    borderRadius: 10,
+    marginBottom: '5%',
   },
-  text: {
-    fontSize: 20,
-    textAlign: "center",
+  view1: {
+    flex: 2,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
-  image: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: 80,
-    height: 80,
+  view2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {},
+  button: {
+    width: '70%',
+  },
+  exercise_box: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  exercise_text: {
+    color: '#292E45',
+    textAlign: 'center',
   },
 });
