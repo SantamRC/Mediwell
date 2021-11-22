@@ -24,6 +24,9 @@ const Profile = ({navigation}) => {
           </View>
         </View>
       </View>
+      <View style={styles.view2}>
+        <Text style={{color: '#292E45', fontSize: 30,fontWeight: 'bold'}}>Past Exercises</Text>
+      </View>
     </View>
   );
 };
@@ -33,14 +36,16 @@ export default Profile;
 const styles = StyleSheet.create({
   heading: {
     fontSize: 30,
-    marginRight: 'auto',
+    color: 'white',
     marginLeft: 20,
-    marginTop: 10,
-    height: '5%',
+    flex: 1,
   },
   flex: {
     display: 'flex',
+    flex: 5,
     flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   hello_text: {
     fontSize: 30,
@@ -49,8 +54,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   header_text: {
-    color: 'black',
+    color: 'white',
     marginTop: 5,
     fontSize: 20,
+  },
+  view1: {
+    flex: 2,
+    backgroundColor: '#292E45',
+    width: '100%',
+  },
+  view2: {
+    flex: 3,
   },
 });
