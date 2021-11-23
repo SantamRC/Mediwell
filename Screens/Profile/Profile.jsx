@@ -4,9 +4,9 @@ import {Avatar} from 'react-native-paper';
 import token from '../../Utilities/API/token';
 
 const Profile = ({navigation}) => {
-  // useEffect(() => {
-  //   console.log(token());
-  // }, []);
+  useEffect(() => {
+    token().then(value => console.log(value));
+  }, []);
   return (
     <View style={{alignItems: 'center', flex: 1}}>
       <View style={styles.view1}>

@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Modal,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import {RadioButton, Button} from 'react-native-paper';
 import Info from 'react-native-vector-icons/MaterialIcons';
 import Counter from '../../Components/UnitsCounter/UnitsCounter';
@@ -29,20 +35,23 @@ const Units = ({navigation}) => {
           <Text style={{fontSize: 25, color: '#292E45'}}>
             When was your last bolus unit?
           </Text>
-          <View
-            style={{
-              ...styles.info_box,
-              backgroundColor: '#F1F1F1',
-            }}>
-            <RadioButton
-              value="first"
-              status={checked === true ? 'checked' : 'unchecked'}
-              onPress={() => setChecked(!checked)}
-            />
-            <Text style={{fontSize: 17}}>
-              My Bolus is still the same Insulin-Type as confirmed in the setup
-            </Text>
-          </View>
+          <View style={styles.time_box}></View>
+          <TouchableWithoutFeedback onPress={() => setChecked(!checked)}>
+            <View
+              style={{
+                ...styles.info_box,
+                backgroundColor: '#F1F1F1',
+              }}>
+              <RadioButton
+                value="first"
+                status={checked === true ? 'checked' : 'unchecked'}
+              />
+              <Text style={{fontSize: 17}}>
+                My Bolus is still the same Insulin-Type as confirmed in the
+                setup
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
         </View>
       </View>
       <View style={styles.view2}>
@@ -54,6 +63,15 @@ const Units = ({navigation}) => {
           Next
         </Button>
       </View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={true}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}>
+        <Time />
+      </Modal>
     </View>
   );
 };
@@ -94,7 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
   button: {
     width: '30%',
@@ -107,5 +125,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 'auto',
     marginLeft: '5%',
+  },
+  time_box: {
+    flex: 0.5,
+    backgroundColor: '#292E45',
+    width: '80%',
+    borderRadius: 10,
   },
 });

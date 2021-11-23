@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import {TextInput} from 'react-native-paper';
+import signup from '../../Utilities/API/signup';
 
 const Signin = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -9,6 +10,12 @@ const Signin = ({navigation}) => {
   const [password2, setPassword2] = useState('');
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
+
+  const submit = () => {
+    signup(first, last, email, password).then(() => {
+      navigation.navigate('WelcomePage');
+    });
+  };
 
   return (
     <View style={styles.body}>
@@ -69,7 +76,7 @@ const Signin = ({navigation}) => {
           style={styles.button}
           mode="contained"
           color="white"
-          onPress={() => navigation.navigate('WelcomePage')}>
+          onPress={() => submit()}>
           Sign Up
         </Button>
         <Text

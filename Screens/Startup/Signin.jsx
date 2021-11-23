@@ -2,10 +2,18 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import {TextInput} from 'react-native-paper';
+import login from '../../Utilities/API/login';
 
 const Signin = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const submit = () => {
+    login(email, password).then(value => {
+      console.log(value);
+      navigation.navigate('WelcomePage');
+    });
+  };
 
   return (
     <View style={styles.body}>
@@ -36,7 +44,7 @@ const Signin = ({navigation}) => {
           style={styles.button}
           mode="contained"
           color="white"
-          onPress={() => navigation.navigate('WelcomePage')}>
+          onPress={() => submit()}>
           Sign In
         </Button>
         <Text
