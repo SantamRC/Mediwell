@@ -1,11 +1,14 @@
-function getGlucose(token, start, end) {
+function getGlucose(token) {
   return new Promise(function (resolve, reject) {
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
+    let start = new Date.toISOString();
+    let end = new Date(new Date().getTime() + 5 * 60000).toISOString();
+
     xhr.addEventListener('readystatechange', function () {
       if (this.readyState === 4) {
-        let result = this.responseText;
+        let result = JSON.parse(this.responseText).egvs.value;
         resolve(result);
       }
     });

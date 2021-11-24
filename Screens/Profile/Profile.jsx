@@ -1,11 +1,16 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {Avatar} from 'react-native-paper';
 import token from '../../Utilities/API/token';
+import {appContext} from '../../Utilities/Context/Provider';
 
 const Profile = ({navigation}) => {
+  const {useDispatch} = useContext(appContext);
   useEffect(() => {
-    token().then(value => console.log(value));
+    token().then(value => {
+      console.log(value);
+      useDispatch('TOKEN', value);
+    });
   }, []);
   return (
     <View style={{alignItems: 'center', flex: 1}}>
@@ -25,7 +30,9 @@ const Profile = ({navigation}) => {
         </View>
       </View>
       <View style={styles.view2}>
-        <Text style={{color: '#292E45', fontSize: 30,fontWeight: 'bold'}}>Past Exercises</Text>
+        <Text style={{color: '#292E45', fontSize: 30, fontWeight: 'bold'}}>
+          Past Exercises
+        </Text>
       </View>
     </View>
   );

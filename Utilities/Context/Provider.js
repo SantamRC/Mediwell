@@ -1,19 +1,24 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useReducer} from 'react';
+import Store from './Store';
+import Reducer from './Reducer';
 
-export const Store = createContext({
-  access_token: '',
-  update: () => {},
-});
+const appContext = createContext(Store);
 
-export const Provider = ({children}) => {
-  const update = tk => {
-    setToken({...token, access_token: tk});
+const Provider = ({children}) => {
+  const [state, dispatch] = useReducer(Reducer, Store);
+
+  const useDispatch = (type, value) => {
+    dispatch({
+      type: type,
+      token: value,
+    });
   };
-  const store = {
-    access_token: 'santam12345',
-    update: update,
-  };
-  const [token, setToken] = useState(store);
 
-  return <Store.Provider value={token}>{children}</Store.Provider>;
+  return (
+    <appContext.Provider value={{state, useDispatch}}>
+      {children}
+    </appContext.Provider>
+  );
 };
+
+export {appContext, Provider};
