@@ -1,7 +1,7 @@
 import React, {useEffect, useContext, useState} from 'react';
 import {StyleSheet, Text, View, Pressable} from 'react-native';
 import Arrow from 'react-native-vector-icons/Feather';
-import getGlucose from '../../Utilities/API/getGlucose';
+//import getGlucose from '../../Utilities/API/getGlucose';
 import {appContext} from '../../Utilities/Context/Provider';
 
 const SugarLevel = () => {
