@@ -4,14 +4,17 @@ import {
   Text,
   View,
   Modal,
+  Alert,
   TouchableWithoutFeedback,
 } from 'react-native';
 import {RadioButton, Button} from 'react-native-paper';
 import Info from 'react-native-vector-icons/MaterialIcons';
 import Counter from '../../Components/UnitsCounter/UnitsCounter';
+import Time from './Time';
 
 const Units = ({navigation}) => {
   const [checked, setChecked] = useState(true);
+  const [modal, setModal] = useState(false);
 
   return (
     <View style={styles.body}>
@@ -35,7 +38,9 @@ const Units = ({navigation}) => {
           <Text style={{fontSize: 25, color: '#292E45'}}>
             When was your last bolus unit?
           </Text>
-          <View style={styles.time_box}></View>
+          <TouchableWithoutFeedback onPress={() => setModal(!modal)}>
+            <View style={styles.time_box}></View>
+          </TouchableWithoutFeedback>
           <TouchableWithoutFeedback onPress={() => setChecked(!checked)}>
             <View
               style={{
@@ -63,15 +68,7 @@ const Units = ({navigation}) => {
           Next
         </Button>
       </View>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={true}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-        }}>
-        <Time />
-      </Modal>
+      <Time modal={modal} setModal={setModal} />
     </View>
   );
 };
