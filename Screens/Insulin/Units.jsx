@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
   },
   view1: {
     flex: 2,
-    backgroundColor: 'yellow',
     alignItems: 'center',
     width: '100%',
   },
@@ -112,7 +111,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   button: {
-    width: '30%',
     marginBottom: '5%',
     width: '40%',
   },

@@ -1,25 +1,31 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../../Screens/Home/Home';
-import Startup from '../../Screens/Startup/Startup';
-import Onboarding from '../../Screens/Onboarding/Onboarding';
-import Profile from '../../Screens/Profile/Profile';
-import AddInsulin from '../../Screens/Insulin/Add';
-import InsulinUnits from '../../Screens/Insulin/Units';
-import InsulinLevel from '../../Screens/Insulin/Level';
+import Level from '../../Screens/Insulin/Level';
+import Units from '../../Screens/Insulin/Units';
+import Select from '../../Screens/Exercise/Select';
+import Recommendations from '../../Screens/Exercise/Recommendations';
 
-const Router = () => {
+const Router = ({tab}) => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={Profile} />
-        <Stack.Screen name="AddInsulin" component={AddInsulin} />
-        <Stack.Screen name="InsulinUnits" component={InsulinUnits} />
-        <Stack.Screen name="InsulinLevel" component={InsulinLevel} />
+    <NavigationContainer independent={true}>
+      <Stack.Navigator
+        screenOptions={{headerShown: false}}
+        initialRouteName={tab === 'insulin' ? 'Units' : 'Select'}>
+        {tab === 'insulin' && (
+          <Stack.Group>
+            <Stack.Screen name="Units" component={Units} />
+            <Stack.Screen name="Level" component={Level} />
+          </Stack.Group>
+        )}
+        {tab === 'exercise' && (
+          <Stack.Group>
+            <Stack.Screen name="Recommendations" component={Recommendations} />
+            <Stack.Screen name="Select" component={Select} />
+          </Stack.Group>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

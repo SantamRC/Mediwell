@@ -55,13 +55,11 @@ const styles = StyleSheet.create({
   },
   view1: {
     flex: 3,
-    backgroundColor: 'yellow',
     alignItems: 'center',
     width: '100%',
   },
   view2: {
     flex: 1,
-    display: 'flex',
     flexDirection: 'row',
     alignItems: 'flex-end',
   },
@@ -88,7 +86,8 @@ const styles = StyleSheet.create({
   button: {
     width: '30%',
     marginBottom: '5%',
-    width: '40%',
+    width: '30%',
+    marginLeft: '5%',
   },
   info_box: {
     display: 'flex',

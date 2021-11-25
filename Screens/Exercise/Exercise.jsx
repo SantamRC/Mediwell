@@ -1,14 +1,22 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import Select from './Select';
+import Recommendations from './Recommendations';
+
+const Stack = createStackNavigator();
 
 const Exercise = () => {
-    return (
-        <View>
-            <Text>Exercise Page</Text>
-        </View>
-    )
-}
+  return (
+    <NavigationContainer independent={true}>
+      <Stack.Navigator
+        initialRouteName="Select"
+        screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Select" component={Select} />
+        <Stack.Screen name="Recommendations" component={Recommendations} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-export default Exercise
-
-const styles = StyleSheet.create({})
+export default Exercise;

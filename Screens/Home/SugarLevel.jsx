@@ -4,7 +4,7 @@ import Arrow from 'react-native-vector-icons/Feather';
 //import getGlucose from '../../Utilities/API/getGlucose';
 import {appContext} from '../../Utilities/Context/Provider';
 
-const SugarLevel = () => {
+const SugarLevel = ({style}) => {
   const {state} = useContext(appContext);
   const [glucose, setGlucose] = useState(50);
 
