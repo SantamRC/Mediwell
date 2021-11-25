@@ -15,7 +15,7 @@ function login(email, password) {
       }
     });
 
-    xhr.open('POST', 'http://192.168.29.160:5000/login');
+    xhr.open('POST', 'https://mediwell.herokuapp.com/login');
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.send(data);
