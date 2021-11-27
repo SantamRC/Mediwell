@@ -1,10 +1,27 @@
-import React from 'react'
+import React, {useState, useContext} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {Button} from 'react-native-paper';
+import Backdrop from '../../Components/Backdrop/Backdrop';
+import token from '../../Utilities/API/token';
+import {appContext} from '../../Utilities/Context/Provider';
 
 const WelcomePage = ({navigation}) => {
+  const [back, setBack] = useState(false);
+  const {useDispatch} = useContext(appContext);
+
+  const onSubmit = () => {
+    setBack(true);
+    token().then(value => {
+      console.log(value);
+      useDispatch('TOKEN', value);
+      setBack(true);
+      navigation.navigate('Bottom');
+    });
+  };
+
   return (
     <View style={styles.body}>
+      {back && <Backdrop />}
       <View style={styles.view1}>
         <Text style={styles.hello}>WELCOME</Text>
         <Text style={styles.flexible}>Flexible exercising without risk</Text>
@@ -22,7 +39,7 @@ const WelcomePage = ({navigation}) => {
           style={styles.button}
           mode="contained"
           color="white"
-          onPress={() => navigation.navigate('Bottom')}>
+          onPress={() => onSubmit()}>
           Start
         </Button>
       </View>

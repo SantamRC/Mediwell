@@ -3,20 +3,25 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import {TextInput} from 'react-native-paper';
 import login from '../../Utilities/API/login';
+import Backdrop from '../../Components/Backdrop/Backdrop';
 
 const Signin = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [back, setBack] = useState(false);
 
   const submit = () => {
+    setBack(true);
     login(email, password).then(value => {
       console.log(value);
+      setBack(false);
       navigation.navigate('WelcomePage');
     });
   };
 
   return (
     <View style={styles.body}>
+      {back && <Backdrop />}
       <View style={styles.circle} />
       <View style={{alignItems: 'center'}}>
         <Text style={styles.text}>Mediwell</Text>
@@ -35,6 +40,7 @@ const Signin = ({navigation}) => {
           value={password}
           onChangeText={password => setPassword(password)}
           mode="flat"
+          placeholder="password"
           style={styles.input}
           activeOutlineColor="white"
           selectionColor="white"

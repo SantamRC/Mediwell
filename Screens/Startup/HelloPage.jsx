@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {Button} from 'react-native-paper';
 
+
 const Startup = ({navigation}) => {
   return (
     <View style={styles.body}>

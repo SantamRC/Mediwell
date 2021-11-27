@@ -1,18 +1,16 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, View, Pressable} from 'react-native';
 
 const Test = () => {
+  const [time, setTime] = useState('0');
   return (
     <View style={styles.body}>
-      <View style={styles.view1}>
-        <Text style={styles.text}>Block 1</Text>
-      </View>
-      <View style={styles.view2}>
-        <Text style={styles.text}>Block 2</Text>
-      </View>
-      <View style={styles.view3}>
-        <Text style={styles.text}>Block 3</Text>
-      </View>
+      <Text>THe TIme is {time}</Text>
+      <Pressable
+        style={{flex: 1, backgroundColor: 'green'}}
+        onPress={() => setTime(new Date(new Date().getTime() + 5 * 60000).toISOString())}>
+        <Text>Press</Text>
+      </Pressable>
     </View>
   );
 };
@@ -22,28 +20,7 @@ export default Test;
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: 'green',
-  },
-  view1: {
-    flex: 1,
-    backgroundColor: '#101820FF',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  view2: {
-    flex: 1,
-    backgroundColor: '#FEE715FF',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  view3: {
-    flex: 1,
-    backgroundColor: '#4831D4',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#c092f7',
   },
   text: {
     fontSize: 30,

@@ -6,12 +6,12 @@ import {appContext} from '../../Utilities/Context/Provider';
 
 const Profile = ({navigation}) => {
   const {useDispatch} = useContext(appContext);
-  useEffect(() => {
-    token().then(value => {
-      console.log(value);
-      useDispatch('TOKEN', value);
-    });
-  }, []);
+  // useEffect(() => {
+  //   token().then(value => {
+  //     console.log(value);
+  //     useDispatch('TOKEN', value);
+  //   });
+  // }, []);
   return (
     <View style={{alignItems: 'center', flex: 1}}>
       <View style={styles.view1}>

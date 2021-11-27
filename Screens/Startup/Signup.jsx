@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import {TextInput} from 'react-native-paper';
 import signup from '../../Utilities/API/signup';
+import Backdrop from '../../Components/Backdrop/Backdrop';
 
 const Signin = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -10,15 +11,19 @@ const Signin = ({navigation}) => {
   const [password2, setPassword2] = useState('');
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
+  const [back, setBack] = useState(false);
 
   const submit = () => {
+    setBack(true);
     signup(first, last, email, password).then(() => {
+      setBack(false);
       navigation.navigate('WelcomePage');
     });
   };
 
   return (
     <View style={styles.body}>
+      {back && <Backdrop />}
       <View style={styles.circle} />
       <View style={{alignItems: 'center'}}>
         <Text style={styles.text}>Mediwell</Text>

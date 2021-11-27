@@ -1,29 +1,31 @@
 import React, {useEffect, useContext, useState} from 'react';
 import {StyleSheet, Text, View, Pressable} from 'react-native';
 import Arrow from 'react-native-vector-icons/Feather';
-//import getGlucose from '../../Utilities/API/getGlucose';
+import getGlucose from '../../Utilities/API/getGlucose';
 import {appContext} from '../../Utilities/Context/Provider';
 
 const SugarLevel = ({style}) => {
   const {state} = useContext(appContext);
   const [glucose, setGlucose] = useState(50);
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     if (state.access_token) {
-  //       getGlucose(state.access_token).then(glucose => setGlucose(glucose));
-  //     }
-  //   }, 50000);
-  // }, []);
+  useEffect(() => {
+    setInterval(() => {
+      if (state.access_token) {
+        getGlucose(state.access_token).then(glucose => setGlucose(glucose));
+      }
+    }, 50000);
+  }, []);
 
-  // const getValue = () => {
-  //   getGlucose(state.access_token).then(glucose => setGlucose(glucose));
-  // };
+  const getValue = () => {
+    getGlucose(state.access_token).then(glucose => setGlucose(glucose));
+  };
 
   return (
     <View style={styles.body}>
       <Text style={{...styles.text, fontSize: 20}}>Current Sugar Level</Text>
-      {/* <Pressable onPress={() => getValue()}>Get Value</Pressable> */}
+      <Pressable onPress={() => getValue()}>
+        <Text>Get Value</Text>
+      </Pressable>
       <View
         style={{
           display: 'flex',
