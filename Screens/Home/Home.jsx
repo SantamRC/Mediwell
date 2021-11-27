@@ -42,8 +42,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 30,
     color: 'white',
-    marginLeft: 20,
-    flex: 1,
+    marginLeft: '5%',
+    marginTop: '2%',
+    flex: 0.6,
     marginRight: 'auto',
   },
 });

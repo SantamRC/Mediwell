@@ -11,6 +11,7 @@ const Recommendations = () => {
           Aerobic Exercise
         </Text>
         <SugarLevel />
+        <View style={{flex: 0.4}} ></View>
       </View>
       <View style={styles.view2}></View>
     </View>
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'white',
     marginLeft: 20,
-    flex: 1,
+    flex: 0.7,
     marginRight: 'auto',
   },
   view1: {

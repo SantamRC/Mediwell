@@ -44,12 +44,14 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 30,
     color: 'white',
-    marginLeft: 20,
+    marginLeft: '5%',
+    marginTop: '2%',
     flex: 1,
+    fontWeight: 'bold',
   },
   flex: {
     display: 'flex',
-    flex: 5,
+    flex: 6,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

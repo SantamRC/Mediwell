@@ -40,11 +40,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   heading: {
-    fontSize: 25,
+    fontWeight: 'bold',
+    fontSize: 30,
     color: '#292E45',
-    marginLeft: 20,
-    marginRight: 'auto',
+    marginLeft: '5%',
     marginTop: '2%',
+    marginRight: 'auto',
   },
   view1: {
     flex: 1,

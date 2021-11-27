@@ -6,14 +6,12 @@ import {appContext} from '../../Utilities/Context/Provider';
 
 const SugarLevel = ({style}) => {
   const {state} = useContext(appContext);
-  const [glucose, setGlucose] = useState(50);
+  const [glucose, setGlucose] = useState('...');
 
   useEffect(() => {
-    setInterval(() => {
-      if (state.access_token) {
-        getGlucose(state.access_token).then(glucose => setGlucose(glucose));
-      }
-    }, 50000);
+    if (state.access_token) {
+      getGlucose(state.access_token).then(glucose => setGlucose(glucose));
+    }
   }, []);
 
   const getValue = () => {
@@ -23,20 +21,32 @@ const SugarLevel = ({style}) => {
   return (
     <View style={styles.body}>
       <Text style={{...styles.text, fontSize: 20}}>Current Sugar Level</Text>
-      <Pressable onPress={() => getValue()}>
+      {/* <Pressable onPress={() => getValue()}>
         <Text>Get Value</Text>
-      </Pressable>
+      </Pressable> */}
       <View
         style={{
           display: 'flex',
           flexDirection: 'row',
         }}>
-        <View style={{flex: 1}}>
-          <Text style={{...styles.text, fontSize: 40}}>{glucose}</Text>
-          <Text style={{...styles.text, fontSize: 25}}>mg/L</Text>
+        <View
+          style={{
+            flex: 1,
+          }}>
+          <Text style={{...styles.text, fontSize: 40, marginLeft: 'auto'}}>
+            {glucose}
+          </Text>
+          <Text style={{...styles.text, fontSize: 25, marginLeft: 'auto'}}>
+            mg/L
+          </Text>
         </View>
-        <View style={{flex: 1, justifyContent: 'center'}}>
-          <Arrow size={80} name="arrow-down-right" color="#292E45" />
+        <View style={{flex: 1}}>
+          <Arrow
+            style={{marginLeft: '2%'}}
+            size={80}
+            name="arrow-down-right"
+            color="#292E45"
+          />
         </View>
       </View>
     </View>
