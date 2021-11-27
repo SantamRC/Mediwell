@@ -1,18 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
 import {Button} from 'react-native-paper';
 import Exercises from './Options';
+import Time from '../Insulin/Time';
 
 const Test = ({navigation}) => {
+  const [checked, setChecked] = useState(true);
+  const [modal, setModal] = useState(false);
+  const [time, setTime] = useState('00:10');
+
   return (
     <View style={styles.body}>
       <View style={styles.view1}>
         <Text style={styles.heading}>Exercise</Text>
         <Exercises />
         <TouchableWithoutFeedback onPress={() => setModal(!modal)}>
-          <View style={styles.time_box}></View>
+          <View style={styles.time_box}>
+            <Text style={{fontSize: 25, color: 'white', fontWeight: 'bold'}}>
+              {time} Minutes
+            </Text>
+            <Text style={{fontSize: 15, color: 'white'}}>Click to Edit</Text>
+          </View>
         </TouchableWithoutFeedback>
       </View>
+      <Time setTime={setTime} modal={modal} setModal={setModal} />
       <View style={styles.view2}>
         {/* <Button
           mode="outlined"
@@ -71,5 +82,13 @@ const styles = StyleSheet.create({
     width: '30%',
     marginBottom: '5%',
     width: '40%',
+  },
+  time_box: {
+    flex: 1.5,
+    backgroundColor: '#292E45',
+    width: '80%',
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

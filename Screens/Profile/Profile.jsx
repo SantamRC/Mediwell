@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom: '5%'
   },
   hello_text: {
     fontSize: 30,

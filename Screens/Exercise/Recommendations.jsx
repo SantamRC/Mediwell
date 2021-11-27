@@ -1,8 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {Button} from 'react-native-paper';
 import SugarLevel from '../Home/SugarLevel';
 
-const Recommendations = () => {
+const Recommendations = ({navigation}) => {
   return (
     <View style={styles.body}>
       <View style={styles.view1}>
@@ -11,9 +12,24 @@ const Recommendations = () => {
           Aerobic Exercise
         </Text>
         <SugarLevel />
-        <View style={{flex: 0.4}} ></View>
+        <View style={{flex: 0.4}}></View>
       </View>
-      <View style={styles.view2}></View>
+      <View style={styles.view2}>
+        <Button
+          mode="outlined"
+          color="#292E45"
+          style={styles.button}
+          onPress={() => navigation.navigate('Select')}>
+          Back
+        </Button>
+        <Button
+          mode="contained"
+          color="#292E45"
+          style={styles.button}
+          onPress={() => console.log('Pressed')}>
+          Done
+        </Button>
+      </View>
     </View>
   );
 };
@@ -39,5 +55,14 @@ const styles = StyleSheet.create({
   },
   view2: {
     flex: 2,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  button: {
+    width: '30%',
+    marginBottom: '5%',
+    width: '30%',
+    marginLeft: '5%',
   },
 });

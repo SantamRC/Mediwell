@@ -1,13 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {CommonActions} from '@react-navigation/native';
 import {StyleSheet, Text, View} from 'react-native';
-import {RadioButton, Button} from 'react-native-paper';
-import Info from 'react-native-vector-icons/MaterialIcons';
-import Counter from '../../Components/UnitsCounter/UnitsCounter';
+import {Button} from 'react-native-paper';
 
 const Units = ({navigation}) => {
-  const [checked, setChecked] = useState(true);
-
   return (
     <View style={styles.body}>
       <Text style={styles.heading}>Insulin</Text>
