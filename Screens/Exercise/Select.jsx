@@ -3,11 +3,19 @@ import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
 import {Button} from 'react-native-paper';
 import Exercises from './Options';
 import Time from '../Insulin/Time';
+import getRecommendation from '../../Utilities/API/getRecommendation';
 
 const Test = ({navigation}) => {
   const [checked, setChecked] = useState(true);
   const [modal, setModal] = useState(false);
   const [time, setTime] = useState('00:10');
+
+  const onNext = () => {
+    getRecommendation().then(value => {
+      console.log(value);
+      navigation.navigate('Recommendations');
+    });
+  };
 
   return (
     <View style={styles.body}>
@@ -36,7 +44,7 @@ const Test = ({navigation}) => {
           mode="contained"
           color="#292E45"
           style={styles.button}
-          onPress={() => navigation.navigate('Recommendations')}>
+          onPress={() => onNext()}>
           Next
         </Button>
       </View>

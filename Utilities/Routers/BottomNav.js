@@ -21,7 +21,6 @@ const Bottom = () => {
     {key: 'Insulin', title: 'Insulin', color: '#009688'},
   ]);
 
-  const Stack = createNativeStackNavigator();
 
   // const renderScene = ({route, jumpTo}) => {
   //   switch (route.key) {
