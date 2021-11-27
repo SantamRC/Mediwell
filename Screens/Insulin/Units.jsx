@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Modal,
-  Alert,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
 import {RadioButton, Button} from 'react-native-paper';
 import Info from 'react-native-vector-icons/MaterialIcons';
 import Counter from '../../Components/UnitsCounter/UnitsCounter';
@@ -15,6 +8,7 @@ import Time from './Time';
 const Units = ({navigation}) => {
   const [checked, setChecked] = useState(true);
   const [modal, setModal] = useState(false);
+  const [time, setTime] = useState('00:00');
 
   return (
     <View style={styles.body}>
@@ -39,7 +33,12 @@ const Units = ({navigation}) => {
             When was your last bolus unit?
           </Text>
           <TouchableWithoutFeedback onPress={() => setModal(!modal)}>
-            <View style={styles.time_box}></View>
+            <View style={styles.time_box}>
+              <Text style={{fontSize: 25, color: 'white', fontWeight: 'bold'}}>
+                {time}
+              </Text>
+              <Text style={{fontSize: 15, color: 'white'}}>Click to Edit</Text>
+            </View>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback onPress={() => setChecked(!checked)}>
             <View
@@ -68,7 +67,7 @@ const Units = ({navigation}) => {
           Next
         </Button>
       </View>
-      <Time modal={modal} setModal={setModal} />
+      <Time setTime={setTime} modal={modal} setModal={setModal} />
     </View>
   );
 };
@@ -126,5 +125,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#292E45',
     width: '80%',
     borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
