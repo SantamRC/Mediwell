@@ -37,7 +37,7 @@ const Home = () => {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="IOB" component={IOB} />
       <Stack.Screen name="Insulin" component={Insulin} />
-      <Stack.Screen name="Exercsies" component={Exercises} />
+      <Stack.Screen name="Exercise" component={Exercise} />
     </Stack.Navigator>
 
   </NavigationContainer>

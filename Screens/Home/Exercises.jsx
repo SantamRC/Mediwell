@@ -32,7 +32,7 @@ const Exercises = ({navigation}) => {
           style={styles.button}
           onPress={() => {
             console.log('Pressed exercise')
-            navigation.navigate()
+            navigation.navigate("Exercise")
             }}>
           Select Excercise
         </Button>
