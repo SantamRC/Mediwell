@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 
-const IOB = () => {
+const IOB = ({navigation}) => {
   return (
     <View style={styles.body}>
       <Text style={{fontWeight: 'bold', color: 'white', fontSize: 20}}>
@@ -16,7 +16,11 @@ const IOB = () => {
         style={styles.button}
         color="#FFFFFF"
         mode="contained"
-        onPress={() => console.log('Pressed')}>
+        onPress={() => {
+          console.log('Presseddddd')
+          navigation.navigate('Insulin')
+        }
+        }>
         Add Insulin
       </Button>
     </View>

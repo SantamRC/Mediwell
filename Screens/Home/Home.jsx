@@ -1,24 +1,46 @@
 import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native'
 import Exercises from './Exercises';
 import SugarLevel from './SugarLevel';
 import IOB from './IOB';
+import Insulin from '../Insulin/Insulin';
+import Exercise from '../Exercise/Exercise';
 
-const Home = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.body}>
       <View style={styles.view1}>
         <Text style={styles.heading}>Home</Text>
         <SugarLevel />
-        <IOB />
+        <IOB navigation={navigation} />
       </View>
       <View style={styles.view2}>
         <Text style={{fontSize: 26, fontWeight: 'bold', color: '#292E45'}}>
           Prepare for Excercise
         </Text>
-        <Exercises />
+        <Exercises navigation={navigation} />
       </View>
     </View>
+  );
+};
+
+const Stack = createStackNavigator();
+
+const Home = () => {
+  return (
+    <NavigationContainer independent={true}>
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="IOB" component={IOB} />
+      <Stack.Screen name="Insulin" component={Insulin} />
+      <Stack.Screen name="Exercsies" component={Exercises} />
+    </Stack.Navigator>
+
+  </NavigationContainer>
   );
 };
 

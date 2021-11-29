@@ -27,7 +27,9 @@ const Units = ({navigation}) => {
           mode="contained"
           color="#292E45"
           style={styles.button}
-          onPress={() => navigation.navigate('Level')}>
+          onPress={() => {
+            console.log("pressed done")
+            navigation.navigate('Home')}}>
           Done
         </Button>
       </View>
