@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import SugarLevel from '../Home/SugarLevel';
 
 const Recommendations = ({navigation, route}) => {
+  const [isFood, setFood] = useState(false);
+
   return (
     <View style={styles.body}>
       <View style={styles.view1}>
@@ -15,7 +17,9 @@ const Recommendations = ({navigation, route}) => {
         <View style={{flex: 0.4}}></View>
       </View>
       <View style={styles.view2}>
-        <Text style={styles.recommendation_text}>{route.params.text}</Text>
+        <Text style={styles.recommendation_text}>
+          {isFood ? route.params.food : route.params.text}
+        </Text>
       </View>
 
       <View style={styles.view3}>
@@ -23,15 +27,19 @@ const Recommendations = ({navigation, route}) => {
           mode="outlined"
           color="#292E45"
           style={styles.button}
-          onPress={() => navigation.navigate('Select')}>
+          onPress={() => {
+            isFood ? setFood(!isFood) : navigation.navigate('Select');
+          }}>
           Back
         </Button>
         <Button
           mode="contained"
           color="#292E45"
           style={styles.button}
-          onPress={() => console.log('Pressed')}>
-          Done
+          onPress={() => {
+            isFood ? console.log('Pressed') : setFood(!isFood);
+          }}>
+          {isFood ? 'Done' : 'Next'}
         </Button>
       </View>
     </View>

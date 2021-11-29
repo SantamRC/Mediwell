@@ -15,6 +15,7 @@ const Test = ({navigation}) => {
       console.log(JSON.parse(value).case_decrease.text_AE);
       navigation.navigate('Recommendations', {
         text: JSON.parse(value).case_decrease.text_AE,
+        food: JSON.parse(value).case_decrease.food_rec,
       });
     });
   };
