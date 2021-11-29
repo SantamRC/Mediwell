@@ -4,8 +4,9 @@ import {Button} from 'react-native-paper';
 import Resistance from '../../Assets/resistance.png';
 import Aerobic from '../../Assets/aerobic.png';
 import High from '../../Assets/high.png';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Exercises = () => {
+const Exercises = ({navigation}) => {
   return (
     <View style={styles.body}>
       <View style={styles.view1}>
@@ -29,7 +30,10 @@ const Exercises = () => {
           mode="contained"
           color="#292E45"
           style={styles.button}
-          onPress={() => console.log('Pressed')}>
+          onPress={() => {
+            console.log('Pressed exercise')
+            navigation.navigate("Exercise")
+            }}>
           Select Excercise
         </Button>
       </View>
