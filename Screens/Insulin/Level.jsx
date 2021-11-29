@@ -2,13 +2,29 @@ import React from 'react';
 import {CommonActions} from '@react-navigation/native';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
+import Wave from 'react-native-waveview';
 
 const Units = ({navigation}) => {
   return (
     <View style={styles.body}>
       <Text style={styles.heading}>Insulin</Text>
       <View style={styles.view1}>
-        <View style={styles.pt1}></View>
+        <View style={styles.pt1}>
+          <View style={styles.container}>
+            <Wave
+              style={styles.waveBall}
+              H={100}
+              waveParams={[{A: 10, T: 180, fill: '#62c2ff'}]}
+              animated={true}
+            />
+            <Wave
+              style={styles.waveBall}
+              H={100}
+              waveParams={[{A: 10, T: 180, fill: '#62c2ff'}]}
+              animated={true}
+            />
+          </View>
+        </View>
         <View style={styles.pt2}>
           <Text style={{fontSize: 17}}>
             At around 6.30 pm you won't have any insulin left in your system
@@ -64,7 +80,7 @@ const styles = StyleSheet.create({
     width: '100%',
     width: '90%',
     borderRadius: 10,
-    alignItems: 'center',
+    
     justifyContent: 'center',
     backgroundColor: '#292E45',
     marginTop: '5%',
@@ -91,5 +107,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 'auto',
     marginLeft: '5%',
+  },
+  container: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+  },
+  waveBall: {
+    width: '50%',
+    aspectRatio: 1,
+    overflow: 'hidden',
   },
 });

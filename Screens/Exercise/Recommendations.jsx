@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import SugarLevel from '../Home/SugarLevel';
 
-const Recommendations = ({navigation}) => {
+const Recommendations = ({navigation, route}) => {
   return (
     <View style={styles.body}>
       <View style={styles.view1}>
@@ -15,6 +15,10 @@ const Recommendations = ({navigation}) => {
         <View style={{flex: 0.4}}></View>
       </View>
       <View style={styles.view2}>
+        <Text style={styles.recommendation_text}>{route.params.text}</Text>
+      </View>
+
+      <View style={styles.view3}>
         <Button
           mode="outlined"
           color="#292E45"
@@ -54,7 +58,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   view2: {
-    flex: 2,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  view3: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'center',
@@ -64,5 +74,11 @@ const styles = StyleSheet.create({
     marginBottom: '5%',
     width: '30%',
     marginLeft: '5%',
+  },
+  recommendation_text: {
+    fontSize: 25,
+    width: '80%',
+    textAlign: 'center',
+    color: '#292E45',
   },
 });

@@ -12,8 +12,10 @@ const Test = ({navigation}) => {
 
   const onNext = () => {
     getRecommendation().then(value => {
-      console.log(value);
-      navigation.navigate('Recommendations');
+      console.log(JSON.parse(value).case_decrease.text_AE);
+      navigation.navigate('Recommendations', {
+        text: JSON.parse(value).case_decrease.text_AE,
+      });
     });
   };
 

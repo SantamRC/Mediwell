@@ -15,10 +15,10 @@ import Router from './Router';
 const Bottom = () => {
   const [index, setIndex] = useState(0);
   const [routes] = useState([
-    {key: 'Profile', title: 'Profile', color: 'green'},
-    {key: 'Home', title: 'Home', color: '#795548'},
-    {key: 'Exercise', title: 'Exercise', color: '#db095d'},
-    {key: 'Insulin', title: 'Insulin', color: '#009688'},
+    {key: 'Profile', title: 'Profile', color: '#48484B'},
+    {key: 'Home', title: 'Home', color: '#292E45'},
+    {key: 'Exercise', title: 'Exercise', color: '#8394DE'},
+    {key: 'Insulin', title: 'Insulin', color: '#0353A4'},
   ]);
 
 
